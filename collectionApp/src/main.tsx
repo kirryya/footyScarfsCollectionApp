@@ -5,15 +5,21 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import App from './App.tsx';
 import './index.css';
+import { Paths } from './enums';
+import { Login } from './pages';
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: Paths.HOME,
     element: <App />,
+  },
+  {
+    path: Paths.LOGIN,
+    element: <Login />,
   },
 ]);
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <RouterProvider router={router} />
   </React.StrictMode>,
