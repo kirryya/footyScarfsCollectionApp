@@ -1,22 +1,18 @@
-import { Suspense } from 'react';
+import * as React from 'react';
 
 import './App.css';
 
-import { NavLink } from 'react-router-dom';
+import { RouterProvider } from 'react-router-dom';
 
-import { Loading } from './common';
-import { Paths } from './enums';
+import { router } from './pages/router-config';
 
 import { ReturnComponentType } from 'types';
 
 const App = (): ReturnComponentType => {
   return (
-    <Suspense fallback={<Loading />}>
-      <div style={{ display: 'flex', flexDirection: 'column' }}>
-        <span>My footy scarfs</span>
-        <NavLink to={Paths.LOGIN}> LOGIN </NavLink>
-      </div>
-    </Suspense>
+    <React.StrictMode>
+      <RouterProvider router={router} />
+    </React.StrictMode>
   );
 };
 
