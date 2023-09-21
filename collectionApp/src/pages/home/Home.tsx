@@ -2,21 +2,20 @@ import { Suspense } from 'react';
 
 import { Link } from 'react-router-dom';
 
-import { Loading } from '../../common';
-import { Paths } from '../../enums';
+import { Loading } from '@/common';
+import { routes } from '@/const';
+import { ReturnComponentType } from '@/types';
 
-import { ReturnComponentType } from 'types';
-
-const Home = (): ReturnComponentType => {
+export const Home = (): ReturnComponentType => {
   return (
     <div>
       <Suspense fallback={<Loading />}>
         <div style={{ display: 'flex', flexDirection: 'column' }}>
           <span>My footy scarfs</span>
-          <Link to={Paths.LOGIN}> LOGIN </Link>
+          <Link to={routes.LOGIN}> LOGIN </Link>
           <div>
             <span>
-              If you did not account yet, please register <Link to={Paths.REGISTRATION}> here </Link>
+              If you did not account yet, please register <Link to={routes.REGISTRATION}> here </Link>
             </span>
           </div>
         </div>
@@ -24,5 +23,3 @@ const Home = (): ReturnComponentType => {
     </div>
   );
 };
-
-export default Home;

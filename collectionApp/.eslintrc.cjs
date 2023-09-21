@@ -82,6 +82,7 @@ module.exports = {
       },
     ],
     'react/function-component-definition': [
+      // eslint-disable-next-line no-magic-numbers
       2,
       {
         namedComponents: 'arrow-function',
@@ -104,6 +105,7 @@ module.exports = {
   },
   settings: {
     'import/resolver': {
+      typescript: {},
       node: {
         paths: ['src'],
         extensions: ['.js', '.jsx', '.ts', '.tsx'],

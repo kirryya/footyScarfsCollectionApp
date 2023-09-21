@@ -4,9 +4,8 @@ import './App.css';
 
 import { RouterProvider } from 'react-router-dom';
 
-import { router } from './pages/router-config';
-
-import { ReturnComponentType } from 'types';
+import { router } from '@/pages/router-config.tsx';
+import { ReturnComponentType } from '@/types';
 
 const App = (): ReturnComponentType => {
   return (

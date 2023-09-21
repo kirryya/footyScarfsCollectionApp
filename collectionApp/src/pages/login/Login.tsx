@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 
-import { ReturnComponentType } from 'types';
+import { ReturnComponentType } from '@/types';
 
 export const Login = (): ReturnComponentType => {
   return (

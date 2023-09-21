@@ -1,3 +1,2 @@
-import { Loading } from './Loading';
-
-export { Loading };
+export { Loading } from './Loading';
+export { ErrorPage } from './Error-page';

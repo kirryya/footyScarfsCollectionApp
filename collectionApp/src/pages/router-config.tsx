@@ -1,16 +1,11 @@
-import * as React from 'react';
-
 import { createBrowserRouter } from 'react-router-dom';
 
-import { ErrorPage } from '../common/Error-page';
-import { Paths } from '../enums';
-
-import Home from './home/Home';
-import { Login } from './login/Login';
-import { Registration } from './registration';
+import { ErrorPage } from '@/common';
+import { routes } from '@/const';
+import { Home, Login, Registration } from '@/pages';
 
 export const router = createBrowserRouter([
   { path: '/', element: <Home />, errorElement: <ErrorPage /> },
-  { path: Paths.LOGIN, element: <Login /> },
-  { path: Paths.REGISTRATION, element: <Registration /> },
+  { path: routes.LOGIN, element: <Login /> },
+  { path: routes.REGISTRATION, element: <Registration /> },
 ]);
