@@ -1,3 +1,3 @@
 export { Login } from './login/Login.tsx';
-export { Registration } from './registration/Registration.tsx';
+export { SignUp } from '@/pages/sign-up/SignUp.tsx';
 export { Home } from './home/Home.tsx';
