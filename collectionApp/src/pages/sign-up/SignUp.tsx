@@ -9,9 +9,9 @@ export const SignUp = (): ReturnComponentType => {
   return (
     <ContainerWrapper>
       <span>Регистрация</span>
-      <span>Пожалуйста введите свои данные для входа в ваш персональный аккаунт</span>
+      <span>Пожалуйста введите свои данные для регистрации</span>
       <SignUpForm />
-      <Link to={routes.REGISTRATION}>Регистрация</Link>
+      <Link to={routes.HOME}>На Главную</Link>
     </ContainerWrapper>
   );
 };

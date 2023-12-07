@@ -1,16 +1,12 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { useState } from 'react';
 
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { zodResolver } from '@hookform/resolvers/zod';
 import { SubmitHandler, useForm } from 'react-hook-form';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { z } from 'zod';
 
 // @ts-ignore
 import s from './login-form.module.scss';
 
-// import s from './login-form.module.scss';
 // @ts-ignore
 import { createUser } from '@/firebase';
 // @ts-ignore

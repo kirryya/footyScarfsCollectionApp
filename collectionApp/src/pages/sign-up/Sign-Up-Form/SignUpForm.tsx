@@ -1,16 +1,12 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { useState } from 'react';
 
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { zodResolver } from '@hookform/resolvers/zod';
 import { SubmitHandler, useForm } from 'react-hook-form';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { z } from 'zod';
 
 // @ts-ignore
 import s from './sign-up-form.module.scss';
 
-// import s from './login-form.module.scss';
 // @ts-ignore
 import { createUser } from '@/firebase';
 // @ts-ignore
@@ -25,7 +21,6 @@ const loginSchema = z.object({
 type FormValues = z.infer<typeof loginSchema>;
 
 export const SignUpForm = (): ReturnComponentType => {
-  // const { login } = useActions(authThunk);
   const [error, setError] = useState<string>('');
   const {
     register,
@@ -55,7 +50,7 @@ export const SignUpForm = (): ReturnComponentType => {
         <input type="password" {...register('password')} />
         <span className={s.messageError}>{errors.password?.message}</span>
 
-        <button type="submit">Вход</button>
+        <button type="submit">Регистрация</button>
 
         <span className={s.messageError}>{error}</span>
       </div>
