@@ -2,6 +2,7 @@ import { Suspense } from 'react';
 
 import { Link } from 'react-router-dom';
 
+// @ts-ignore
 import s from './home.module.scss';
 
 import { Loading } from '@/common';

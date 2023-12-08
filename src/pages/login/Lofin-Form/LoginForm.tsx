@@ -5,6 +5,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { z } from 'zod';
 
+// @ts-ignore
 import s from './login-form.module.scss';
 
 import { routes } from '@/const';

@@ -4,6 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { z } from 'zod';
 
+// @ts-ignore
 import s from './sign-up-form.module.scss';
 
 import { MIN_PASSWORD_LENGTH } from '@/const/consts.ts';

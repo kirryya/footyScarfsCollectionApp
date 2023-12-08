@@ -1,5 +1,6 @@
 import { ComponentPropsWithoutRef } from 'react';
 
+// @ts-ignore
 import s from './style-wrapper.module.scss';
 
 import { ReturnComponentType } from '@/types';
