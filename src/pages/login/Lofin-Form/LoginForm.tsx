@@ -5,7 +5,6 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { z } from 'zod';
 
-// @ts-ignore
 import s from './login-form.module.scss';
 
 import { routes } from '@/const';
@@ -48,12 +47,14 @@ export const LoginForm = (): ReturnComponentType => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className={s.card}>
-        <input type="email" {...register('email')} />
+        <input className={s.login_input} type="email" {...register('email')} />
         <span className={s.messageError}>{errors.email?.message}</span>
-        <input type="password" {...register('password')} />
+        <input className={s.login_input} type="password" {...register('password')} />
         <span className={s.messageError}>{errors.password?.message}</span>
 
-        <button type="submit">Вход</button>
+        <button type="submit" className={s.login_button}>
+          Вход
+        </button>
 
         <span className={s.messageError}>{error}</span>
       </div>

@@ -8,10 +8,12 @@ import { ReturnComponentType } from '@/types';
 export const Login = (): ReturnComponentType => {
   return (
     <ContainerWrapper>
-      <span>Вход</span>
-      <span>Пожалуйста введите свои данные для входа в ваш персональный аккаунт</span>
+      <h2>Вход</h2>
+      <span>Пожалуйста, введите данные для входа в ваш персональный аккаунт</span>
       <LoginForm />
-      <Link to={routes.REGISTRATION}>Регистрация</Link>
+      <span>
+        Вернуться к <Link to={routes.REGISTRATION}>Регистрации</Link>{' '}
+      </span>
     </ContainerWrapper>
   );
 };

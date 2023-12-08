@@ -11,8 +11,8 @@
     "preview": "vite preview",
     "lint-fix": "eslint --fix",
     "prettier": "prettier . --write",
-    "predeploy" : "npm run build",
-    "deploy" : "gh-pages -d dist"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.2",
