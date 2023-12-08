@@ -2,20 +2,23 @@ import { useState } from 'react';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 import { z } from 'zod';
 
 // @ts-ignore
 import s from './login-form.module.scss';
 
+import { routes } from '@/const';
+import { MIN_PASSWORD_LENGTH } from '@/const/consts.ts';
 // @ts-ignore
-import { createUser } from '@/firebase';
+import { signInUser } from '@/firebase';
 // @ts-ignore
 import { startSession } from '@/storage/session';
 import { ReturnComponentType } from '@/types';
 
 const loginSchema = z.object({
   email: z.string().email(),
-  password: z.string().min(4),
+  password: z.string().min(MIN_PASSWORD_LENGTH),
 });
 
 type FormValues = z.infer<typeof loginSchema>;
@@ -31,12 +34,13 @@ export const LoginForm = (): ReturnComponentType => {
     resolver: zodResolver(loginSchema),
     defaultValues: { email: '', password: '' },
   });
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const onSubmit: SubmitHandler<FormValues> = async ({ email, password }) => {
     try {
-      const { user } = await createUser(email, password);
+      const { user } = await signInUser(email, password);
 
       startSession(user);
+      navigate(routes.MAIN);
     } catch (error) {
       // @ts-ignore
       setError(error.message);

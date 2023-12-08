@@ -7,6 +7,7 @@ import { z } from 'zod';
 // @ts-ignore
 import s from './sign-up-form.module.scss';
 
+import { MIN_PASSWORD_LENGTH } from '@/const/consts.ts';
 // @ts-ignore
 import { createUser } from '@/firebase';
 // @ts-ignore
@@ -15,13 +16,14 @@ import { ReturnComponentType } from '@/types';
 
 const loginSchema = z.object({
   email: z.string().email(),
-  password: z.string().min(4),
+  password: z.string().min(MIN_PASSWORD_LENGTH),
 });
 
 type FormValues = z.infer<typeof loginSchema>;
 
 export const SignUpForm = (): ReturnComponentType => {
   const [error, setError] = useState<string>('');
+
   const {
     register,
     handleSubmit,
