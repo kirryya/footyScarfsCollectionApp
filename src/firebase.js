@@ -1,6 +1,7 @@
 import { getAnalytics } from 'firebase/analytics';
 import { initializeApp } from 'firebase/app';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, getAuth } from 'firebase/auth';
+import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: `${import.meta.env.VITE_API_KEY}`,
@@ -14,6 +15,8 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
+
+export const db = getFirestore(app);
 
 export const createUser = async (email, password) => {
   return createUserWithEmailAndPassword(getAuth(app), email, password);
