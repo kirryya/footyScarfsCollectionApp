@@ -1,7 +1,9 @@
 import { SetStateAction, useEffect, useState } from 'react';
 
-import { addDoc, collection, getDocs, serverTimestamp, orderBy, query } from 'firebase/firestore';
+import { addDoc, collection, getDocs, orderBy, query, serverTimestamp } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
+
+import s from './main.module.scss'
 
 import { routes } from '@/const';
 import { db } from '@/firebase';
@@ -53,7 +55,7 @@ export const Main = (): ReturnComponentType => {
 
   const onLogOutButtonClick = (): void => {
     endSession();
-    navigate(routes.HOME);
+    navigate(routes.LOGIN);
   };
 
   return (
@@ -76,13 +78,7 @@ export const Main = (): ReturnComponentType => {
           </button>
         </div>
       </div>
-      <div>
-        {scarfs?.map(({ footyScarfs, id }) => (
-          <p key={id} style={{ color: 'white' }}>
-            {footyScarfs}
-          </p>
-        ))}
-      </div>
+      <div className={s.data}>{scarfs?.map(({ footyScarfs, id }) => <p key={id}>{footyScarfs}</p>)}</div>
     </div>
   );
 };
