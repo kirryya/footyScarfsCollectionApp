@@ -44,9 +44,11 @@ export const SignUpForm = (): ReturnComponentType => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className={s.card}>
-        <input type="email" {...register('email')} />
+        <input type="email" {...register('email')} placeholder="Ведите свой email" />
         <span className={s.messageError}>{errors.email?.message}</span>
-        <input type="password" {...register('password')} />
+        <input type="password" {...register('password')} placeholder="Ведите свой пароль"/>
+        <span className={s.messageError}>{errors.password?.message}</span>
+        <input type="password" {...register('password')} placeholder="Подтвердите пароль"/>
         <span className={s.messageError}>{errors.password?.message}</span>
 
         <button type="submit">Регистрация</button>

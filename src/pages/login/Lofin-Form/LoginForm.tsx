@@ -47,16 +47,16 @@ export const LoginForm = (): ReturnComponentType => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className={s.card}>
-        <div style={{ margin: '10%' }}>
-          <input className={s.login_input} type="email" {...register('email')} />
+        <div style={{ margin: '10%', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+          <input className={s.login_input} type="email" {...register('email')} placeholder="Ведите свой email" />
           <span className={s.messageError}>{errors.email?.message}</span>
         </div>
-        <div>
-          <input className={s.login_input} type="password" {...register('password')} />
+        <div style={{ margin: '10%', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+          <input className={s.login_input} type="password" {...register('password')} placeholder="Ведите свой пароль" />
           <span className={s.messageError}>{errors.password?.message}</span>
         </div>
 
-        <button type="submit" className={s.login_button}>
+        <button type="submit" className={s.login_button} disabled={!!errors.email || !!errors.password}>
           Вход
         </button>
 
