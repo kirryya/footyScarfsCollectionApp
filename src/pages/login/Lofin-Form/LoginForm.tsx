@@ -48,10 +48,14 @@ export const LoginForm = (): ReturnComponentType => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className={s.card}>
-        <input className={s.login_input} type="email" {...register('email')} />
-        <span className={s.messageError}>{errors.email?.message}</span>
-        <input className={s.login_input} type="password" {...register('password')} />
-        <span className={s.messageError}>{errors.password?.message}</span>
+        <div style={{ margin: '10%' }}>
+          <input className={s.login_input} type="email" {...register('email')} />
+          <span className={s.messageError}>{errors.email?.message}</span>
+        </div>
+        <div>
+          <input className={s.login_input} type="password" {...register('password')} />
+          <span className={s.messageError}>{errors.password?.message}</span>
+        </div>
 
         <button type="submit" className={s.login_button}>
           Вход

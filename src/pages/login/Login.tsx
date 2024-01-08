@@ -9,7 +9,7 @@ export const Login = (): ReturnComponentType => {
   return (
     <ContainerWrapper>
       <h2>Вход</h2>
-      <span>Пожалуйста, введите данные для входа в ваш персональный аккаунт</span>
+      <span style={{ textAlign: 'center' }}>Пожалуйста, введите данные для входа в ваш персональный аккаунт</span>
       <LoginForm />
       <span>
         Вернуться к <Link to={routes.REGISTRATION}>Регистрации</Link>{' '}
