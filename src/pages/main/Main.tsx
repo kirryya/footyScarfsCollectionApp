@@ -3,7 +3,7 @@ import { SetStateAction, useEffect, useState } from 'react';
 import { addDoc, collection, getDocs, orderBy, query, serverTimestamp } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
 
-import s from './main.module.scss'
+import s from './main.module.scss';
 
 import { routes } from '@/const';
 import { db } from '@/firebase';
@@ -31,12 +31,12 @@ export const Main = (): ReturnComponentType => {
     e.preventDefault();
 
     try {
-      const docRef = await addDoc(collection(db, `${email}_footyScarfs`), {
+      await addDoc(collection(db, `${email}_footyScarfs`), {
         footyScarfs: scarf,
         created: serverTimestamp(),
       });
 
-      console.log('Document written with ID: ', docRef.id);
+      setScarf('');
     } catch (e) {
       console.error('Error adding document: ', e);
     } finally {
@@ -49,8 +49,11 @@ export const Main = (): ReturnComponentType => {
       const newData = querySnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id }));
 
       setScarfs(newData as SetStateAction<never[]>);
-      console.log(scarfs, newData);
     });
+  };
+
+  const onChangeNewFootyInput = (e): void => {
+    setScarf(e.target.value);
   };
 
   const onLogOutButtonClick = (): void => {
@@ -60,25 +63,44 @@ export const Main = (): ReturnComponentType => {
 
   return (
     <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
-      <div>
-        <span>{email}</span>
+      <div style={{ display: 'flex', justifyContent: 'space-between', width: '98%', marginTop: '1%' }}>
+        <span style={{ fontSize: 'large', fontWeight: 'bolder', backgroundColor: 'green' }}>Аккаунт: {email}</span>
         <button type="button" onClick={onLogOutButtonClick}>
           Log Out
         </button>
       </div>
-      <title>My Collection</title>
-      <div>
-        <div>
-          <input type="text" placeholder="New footy team" onChange={e => setScarf(e.target.value)} />
-        </div>
 
-        <div className="btn-container">
-          <button type="submit" className="btn" onClick={addTodo}>
-            Submit
-          </button>
+      <div className={s.data}>
+        <div style={{ display: 'flex', justifyContent: 'start', marginBottom: '1%', gap: '1%' }}>
+          <div>
+            <input
+              type="text"
+              placeholder="Введите название нового шарфа"
+              value={scarf}
+              onChange={onChangeNewFootyInput}
+            />
+          </div>
+
+          <div className="btn-container">
+            <button type="submit" className="btn" onClick={addTodo}>
+              Добавить
+            </button>
+          </div>
         </div>
+        <table>
+          <tbody>
+            <tr>
+              <th>Название шарфа</th>
+              <th>Дата появления</th>
+            </tr>
+            {scarfs?.map(({ footyScarfs, id }) => (
+              <tr key={id} style={{ textAlign: 'start' }}>
+                <td>{footyScarfs}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
-      <div className={s.data}>{scarfs?.map(({ footyScarfs, id }) => <p key={id}>{footyScarfs}</p>)}</div>
     </div>
   );
 };
